@@ -1,24 +1,18 @@
 import * as React from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
+import "./App.css";
+
+
 export default function App() {
     return (
         <div>
-            <h1>Basic route 6</h1>
-
-
-            {/* Routes nest inside one another. Nested route paths build upon
-            parent route paths, and nested route elements render inside
-            parent route elements. See the note about <Outlet> below. */}
+            <h1>Navbar</h1>
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="about" element={<About />} />
                     <Route path="dashboard" element={<Dashboard />} />
-
-                    {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
                     <Route path="*" element={<NoMatch />} />
                 </Route>
             </Routes>
@@ -32,18 +26,26 @@ function Layout() {
             {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
             <nav>
-                <ul>
+                <ul className="container_link">
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link className="link" to="/">
+                            Home
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/about">About</Link>
+                        <Link className="link" to="/about">
+                            About
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/dashboard">Dashboard</Link>
+                        <Link className="link" to="/dashboard">
+                            Dashboard
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/nothing-here">Nothing Here</Link>
+                        <Link className="link" to="/nothing-here">
+                            Nothing Here
+                        </Link>
                     </li>
                 </ul>
             </nav>
@@ -61,7 +63,24 @@ function Layout() {
 function Home() {
     return (
         <div>
-            <h2>Home</h2>
+            <h1>
+                <strong>HOME PAGE</strong>
+            </h1>
+            
+            <div className="container">
+                <section className="one">
+                    <h1>first page</h1>
+                </section>
+                <section className="two">
+                    <h1>Second page</h1>
+                </section>
+                <section className="three">
+                    <h1>Third page</h1>
+                </section>
+                <section className="four">
+                    <h1>Four page</h1>
+                </section>
+            </div>
         </div>
     );
 }
